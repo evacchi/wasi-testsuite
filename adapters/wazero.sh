@@ -32,7 +32,8 @@ while [[ $# -gt 0 ]]; do
         shift
         ;;
     --dir)
-        ARGS+=("-mount" "$2")
+	# TODO: the mount should only include $2 not the basedir of it.
+        ARGS+=("-mount=${PWD}:/")
         shift
         shift
         ;;
@@ -56,3 +57,4 @@ TEST_FILE=$(basename "$TEST_FILE")
 cd "$TEST_DIR"
 set -x # echo the next line, useful for debugging to re-run failing tests
 exec wazero run -hostlogging filesystem "${ARGS[@]}" "$TEST_FILE" "${PROG_ARGS[@]}"
+
