@@ -52,9 +52,8 @@ fi
 # Run the tests in the test directory because the --dir arguments are given as
 # paths relative to the test file.
 TEST_DIR=$(dirname "$TEST_FILE")
-TEST_FILE=$(basename "$TEST_FILE")
 
 cd "$TEST_DIR"
 set -x # echo the next line, useful for debugging to re-run failing tests
-exec wazero run -hostlogging filesystem "${ARGS[@]}" "$TEST_FILE" "${PROG_ARGS[@]}"
+exec wazero run -hostlogging=filesystem "${ARGS[@]}" "$TEST_FILE" "${PROG_ARGS[@]}"
 
