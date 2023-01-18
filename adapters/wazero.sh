@@ -32,8 +32,7 @@ while [[ $# -gt 0 ]]; do
         shift
         ;;
     --dir)
-	# TODO: the mount should only include $2 not the basedir of it.
-        ARGS+=("-mount=${PWD}:/")
+	ARGS+=("-mount=${PWD}/${2}:/${2}")
         shift
         shift
         ;;
