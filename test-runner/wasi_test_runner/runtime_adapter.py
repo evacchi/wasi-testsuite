@@ -1,6 +1,5 @@
 import subprocess
-import sys
-import os
+from shutil import which
 from pathlib import Path
 from typing import Dict, NamedTuple, List
 
@@ -17,7 +16,7 @@ class RuntimeAdapter:
         self._adapter_path = self._abs(adapter_path)
         # invoke the adapter with a configured shell runner. Default to bash.
         # e.g. this is needed to point GHA's Windows runner to bash executable
-        self._shell = os.environ.get('TEST_SHELL_RUNNER', 'bash')
+        self._shell = which('bash')
 
     def get_version(self) -> RuntimeVersion:
         output = (
