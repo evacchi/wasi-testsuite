@@ -29,6 +29,6 @@ cwd=os.getcwd()
 DIR_ARGS=[f"-mount={cwd}/{dir}:/{dir}" for dir in args.dir]
 
 PROG=["wazero"] + ["run", "-hostlogging=filesystem"] + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS
-print(PROG)
-print(TEST_DIR)
-subprocess.run(PROG, cwd=TEST_DIR)
+# print(PROG)
+# print(TEST_DIR)
+sys.exit(subprocess.run(PROG, cwd=TEST_DIR).returncode)

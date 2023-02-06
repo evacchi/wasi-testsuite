@@ -20,4 +20,4 @@ PROG_ARGS=args.arg
 ENV_ARGS=[j for i in args.env for j in ["--env", i]]
 DIR_ARGS=[j for i in args.dir for j in ["--dir", i]]
 
-subprocess.run(["iwasm"] + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS)
+sys.exit(subprocess.run(["iwasm"] + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS).returncode)
