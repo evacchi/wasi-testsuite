@@ -17,7 +17,7 @@ if args.version:
 
 TEST_FILE=args.test_file
 PROG_ARGS=args.arg 
-ENV_ARGS=[j for i in args.env for j in ["--env", i]]
-DIR_ARGS=[j for i in args.dir for j in ["--dir", i]]
+ENV_ARGS=[f'--env={i}' for i in args.env]
+DIR_ARGS=[f'--dir={i}' for i in args.dir]
 
 sys.exit(subprocess.run(["iwasm"] + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS).returncode)
