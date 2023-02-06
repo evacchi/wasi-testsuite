@@ -9,8 +9,9 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
         runtime: [wasmtime, wasm-micro-runtime]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
