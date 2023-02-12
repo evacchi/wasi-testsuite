@@ -26,7 +26,7 @@ if args.arg:
     PROG_ARGS=['--']+args.arg
 ENV_ARGS=[f"-env={e}" for e in args.env]
 cwd=os.getcwd()
-DIR_ARGS=[f"-mount={cwd}/{dir}:/{dir}" for dir in args.dir]
+DIR_ARGS=[f"-mount={cwd}/{dir}:{dir}" for dir in args.dir]
 
 PROG=["wazero"] + ["run", "-hostlogging=filesystem"] + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS
 sys.exit(subprocess.run(PROG, cwd=TEST_DIR).returncode)
