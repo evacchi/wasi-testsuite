@@ -27,6 +27,7 @@ jobs:
       - name: Check prettier codestyle
         working-directory: tests/assemblyscript
         run: |
+          npm install prettier
           npm run prettier-format-check
 
       - name: Build tests
