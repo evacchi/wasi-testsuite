@@ -22,7 +22,7 @@ jobs:
       - name: Initialize node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Check prettier codestyle
         working-directory: tests/assemblyscript
